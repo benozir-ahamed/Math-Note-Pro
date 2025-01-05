@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Benozir Ahamed Hridoy - Explore educational content and resources for Applied Mathematics.">
+    <meta name="keywords" content="Applied Mathematics, University of Rajshahi, Notes, Solutions">
+    <meta name="author" content="Benozir Ahamed Hridoy">
+    <title>Applied Mathematics - Notes</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            position: relative;
+        }
+
+        header .logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 60px;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        header p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+        }
+
+        .hero-btn {
+            background: #04AA6D;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .hero-btn:hover {
+            background: #028858;
+            transform: scale(1.05);
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #333;
+            padding: 15px 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 25px;
+            margin: 0 5px;
+            border-radius: 5px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            background: #04AA6D;
+            color: #fff;
+        }
+
+        .content {
+            text-align: center;
+            padding: 60px 20px;
+            background: #fff;
+            margin: 30px auto;
+            max-width: 900px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #04AA6D;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1rem;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header, .content, footer {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            nav {
+                flex-direction: column;
+            }
+
+            nav a {
+                margin: 5px 0;
+            }
+
+            .content {
+                padding: 40px 15px;
+            }
+        }
+    
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Button Hover Animation */
+.hero-btn {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+.hero-btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: skewX(-45deg);
+    transition: left 0.5s;
+}
+.hero-btn:hover:before {
+    left: 100%;
+}
+
+/* Card Hover Effect */
+.chapter-card:hover {
+    background-color: #e9f5f2;
+    transform: translateY(-8px);
+    transition: all 0.4s ease;
+}
+
+/* Footer Icons */
+footer a {
+    margin: 0 10px;
+    font-size: 1.4rem;
+}
+
+</style>
+</head>
+<body>
+    
+    <header>
+        <img src="images.png" alt="Rajshahi University Logo" class="logo">
+        <h1>Welcome to Applied Mathematics</h1>
+        <p>Your trusted resource for notes, solutions, and knowledge.</p>
+        <button class="hero-btn" onclick="window.location.href='notes.html'">Explore Notes</button>
+    </header>
+    <style>
+        header {
+            background: linear-gradient(120deg, #6a11cb, #2575fc, #04AA6D);
+            padding: 60px 20px;
+        }
+        header h1 {
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+    
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Button Hover Animation */
+.hero-btn {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+.hero-btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: skewX(-45deg);
+    transition: left 0.5s;
+}
+.hero-btn:hover:before {
+    left: 100%;
+}
+
+/* Card Hover Effect */
+.chapter-card:hover {
+    background-color: #e9f5f2;
+    transform: translateY(-8px);
+    transition: all 0.4s ease;
+}
+
+/* Footer Icons */
+footer a {
+    margin: 0 10px;
+    font-size: 1.4rem;
+}
+
+</style>
+    
+        <img src="images.png" alt="Rajshahi University Logo" class="logo">
+        <h1>Welcome to Applied Mathematics</h1>
+        <p>Your trusted resource for notes, solutions, and knowledge.</p>
+        <button class="hero-btn" onclick="window.location.href='notes.html'">Explore Notes</button>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="notes.html">Notes</a>
+        <a href="solve.html">Solutions</a>
+        <a href="game.html">Games</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About</a>
+    </nav>
+
+    <div class="content" id="home">
+        <h2>What is Applied Mathematics?</h2>
+        <p>
+            Applied Mathematics uses mathematical methods to solve practical problems in science, engineering, economics, and more. It bridges the gap between theory and application, helping professionals understand and design complex systems.
+        </p>
+    </div>
+
+    <footer><small>
+        <p>&copy; 2025 Benozir Ahamed Hridoy | All Rights Reserved</p>
+        <p>
+            <a href="https://facebook.com" target="_blank">Facebook</a> |
+            <a href="https://twitter.com" target="_blank">Twitter</a> |
+            <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+        </p>
+    </small></footer>
+<script>
+// Smooth Scroll for Anchors
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+// Modal Popup Example
+function showModal() {
+    alert('Thank you for exploring Applied Mathematics! Stay tuned for more updates.');
+}
+</script>
+</body>
+            </html>
