@@ -6,48 +6,97 @@
     <title>Class 6 Mathematics Exam</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
         }
+
         .container {
             max-width: 800px;
-            margin: 20px auto;
-            background: white;
+            width: 100%;
+            background: #fff;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
         }
+
         h1, h2 {
             text-align: center;
             color: #333;
         }
-        #examPage, #resultPage, #timeUpMessage {
-            display: none;
-        }
+
         #timer {
             font-size: 20px;
             font-weight: bold;
             text-align: center;
             margin-bottom: 20px;
+            color: #FF5733;
         }
-        .question {
-            margin-bottom: 20px;
-        }
-        button {
+
+        #startButton {
             display: block;
             width: 100%;
             padding: 10px;
-            font-size: 16px;
+            font-size: 18px;
             color: white;
             background-color: #007BFF;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            transition: background-color 0.3s;
+            margin-bottom: 20px;
         }
-        button:hover {
+
+        #startButton:hover {
             background-color: #0056b3;
+        }
+
+        .question {
+            margin-bottom: 25px;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        .question p {
+            color: #333;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            color: white;
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        #timeUpMessage {
+            display: none;
+            text-align: center;
+            font-size: 20px;
+            color: #FF5733;
+        }
+
+        #examPage {
+            display: none;
+        }
+
+        #resultPage {
+            display: none;
         }
     </style>
 </head>
@@ -57,41 +106,39 @@
         <div id="startPage">
             <h1>Class 6 Mathematics Exam</h1>
             <p style="text-align: center;">Click the button below to start the exam.</p>
-            <button onclick="startExam()">Start Exam</button>
+            <button id="startButton" onclick="startExam()">Start Exam</button>
         </div>
 
         <!-- Timer -->
-        <div id="timer">Time Left: </div>
+        <div id="timer">Time Left:</div>
 
         <!-- Exam Page -->
         <div id="examPage">
             <h2>Class 6 Mathematics Exam</h2>
             <form id="examForm">
-                <!-- MCQ Questions -->
+                <!-- L ong Questions -->
                 <div class="question">
-                    <p>1. Which of the following is divisible by 3?</p>
-                    <input type="radio" id="mcq1_option1" name="mcq1" value="123">
-                    <label for="mcq1_option1">123</label><br>
-                    <input type="radio" id="mcq1_option2" name="mcq1" value="124">
-                    <label for="mcq1_option2">124</label><br>
+                    <p>1. Write the number 3456 in words.</p>
                 </div>
 
                 <div class="question">
-                    <p>2. Find the HCF of 18 and 30:</p>
-                    <input type="radio" id="mcq2_option1" name="mcq2" value="6">
-                    <label for="mcq2_option1">6</label><br>
-                    <input type="radio" id="mcq2_option2" name="mcq2" value="12">
-                    <label for="mcq2_option2">12</label><br>
+                    <p>2. What is the HCF of 18 and 30? Explain your answer.</p>
+                </div>
+
+                <div class="question">
+                    <p>3. Explain the divisibility rule for 3 and give an example.</p>
+                </div>
+
+                <div class="question">
+                    <p>4. Write the divisibility rule for 4 and demonstrate it with an example.</p>
+                </div>
+
+                <div class="question">
+                    <p>5. What is the GCF of 12, 18, and 24? Provide steps to find it.</p>
                 </div>
 
                 <button type="button" onclick="submitExam()">Submit Exam</button>
             </form>
-        </div>
-
-        <!-- Result Page -->
-        <div id="resultPage">
-            <h2>Result</h2>
-            <p id="score"></p>
         </div>
 
         <!-- Time's Up Message -->
@@ -107,7 +154,6 @@
         const timerDiv = document.getElementById("timer");
         const startPage = document.getElementById("startPage");
         const examPage = document.getElementById("examPage");
-        const resultPage = document.getElementById("resultPage");
         const timeUpMessage = document.getElementById("timeUpMessage");
 
         function startExam() {
@@ -152,7 +198,7 @@
             examPage.style.display = "none";
 
             // Show result page
-            resultPage.style.display = "block";
+            timeUpMessage.style.display = "block";
 
             // Clear localStorage (to prevent timer restart on reload)
             localStorage.removeItem("examEndTime");
@@ -174,4 +220,4 @@
         };
     </script>
 </body>
-    </html>
+                                      </html>
