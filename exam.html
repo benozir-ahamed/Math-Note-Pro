@@ -6,7 +6,7 @@
     <title>Class 6 Mathematics Exam</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f9;
@@ -35,13 +35,6 @@
         .question {
             margin-bottom: 20px;
         }
-        .question p {
-            font-weight: bold;
-            color: #444;
-        }
-        .question input[type="file"] {
-            margin-top: 10px;
-        }
         button {
             display: block;
             width: 100%;
@@ -55,14 +48,6 @@
         }
         button:hover {
             background-color: #0056b3;
-        }
-        .correct-answer {
-            color: green;
-            font-weight: bold;
-        }
-        .wrong-answer {
-            color: red;
-            font-weight: bold;
         }
     </style>
 </head>
@@ -99,22 +84,6 @@
                     <label for="mcq2_option2">12</label><br>
                 </div>
 
-                <!-- Long Questions -->
-                <div class="question">
-                    <p>3. Write the number 407,036 in words (Upload your written answer):</p>
-                    <input type="file" id="fileUpload1" accept="image/*,application/pdf">
-                </div>
-
-                <div class="question">
-                    <p>4. Explain the divisibility rule of 9 (Upload your written answer):</p>
-                    <input type="file" id="fileUpload2" accept="image/*,application/pdf">
-                </div>
-
-                <div class="question">
-                    <p>5. Find the GCF of 36, 48, and 60 (Upload your answer):</p>
-                    <input type="file" id="fileUpload3" accept="image/*,application/pdf">
-                </div>
-
                 <button type="button" onclick="submitExam()">Submit Exam</button>
             </form>
         </div>
@@ -123,7 +92,6 @@
         <div id="resultPage">
             <h2>Result</h2>
             <p id="score"></p>
-            <div id="feedback"></div>
         </div>
 
         <!-- Time's Up Message -->
@@ -135,7 +103,7 @@
 
     <script>
         // Timer settings
-        let timeLeft = 10 * 60; // Example: 10 minutes
+        const totalTime = 10 * 60; // 10 minutes in seconds
         const timerDiv = document.getElementById("timer");
         const startPage = document.getElementById("startPage");
         const examPage = document.getElementById("examPage");
@@ -143,15 +111,31 @@
         const timeUpMessage = document.getElementById("timeUpMessage");
 
         function startExam() {
+            const startTime = Date.now();
+            const endTime = startTime + totalTime * 1000; // Calculate end time
+
+            // Save end time in localStorage
+            localStorage.setItem("examEndTime", endTime);
+
+            // Hide start page and show exam page
             startPage.style.display = "none";
             examPage.style.display = "block";
+
+            // Start the timer
             startTimer();
         }
 
         function startTimer() {
+            const endTime = parseInt(localStorage.getItem("examEndTime"), 10);
+            if (!endTime) return;
+
             const timerInterval = setInterval(() => {
+                const currentTime = Date.now();
+                const timeLeft = Math.max(0, Math.floor((endTime - currentTime) / 1000)); // Calculate time left in seconds
+
                 const minutes = Math.floor(timeLeft / 60);
                 const seconds = timeLeft % 60;
+
                 timerDiv.textContent = `Time Left: ${minutes}m ${seconds}s`;
 
                 if (timeLeft <= 0) {
@@ -160,51 +144,34 @@
                     examPage.style.display = "none";
                     timeUpMessage.style.display = "block";
                 }
-
-                timeLeft--;
             }, 1000);
         }
 
-        // MCQ answers and correct answers
-        const correctAnswers = {
-            mcq1: "123",
-            mcq2: "6"
-        };
-
         function submitExam() {
-            const mcq1 = document.querySelector('input[name="mcq1"]:checked');
-            const mcq2 = document.querySelector('input[name="mcq2"]:checked');
-
-            if (!mcq1 || !mcq2) {
-                alert("Please answer all MCQ questions!");
-                return;
-            }
-
-            let score = 0;
-            let feedback = "";
-
-            // Check MCQ1
-            if (mcq1.value === correctAnswers.mcq1) {
-                score++;
-                feedback += `<p>Q1: Correct! (${correctAnswers.mcq1})</p>`;
-            } else {
-                feedback += `<p class="wrong-answer">Q1: Wrong! Correct answer: ${correctAnswers.mcq1}</p>`;
-            }
-
-            // Check MCQ2
-            if (mcq2.value === correctAnswers.mcq2) {
-                score++;
-                feedback += `<p>Q2: Correct! (${correctAnswers.mcq2})</p>`;
-            } else {
-                feedback += `<p class="wrong-answer">Q2: Wrong! Correct answer: ${correctAnswers.mcq2}</p>`;
-            }
-
-            // Show result
+            // Hide exam page
             examPage.style.display = "none";
+
+            // Show result page
             resultPage.style.display = "block";
-            document.getElementById("score").textContent = `You scored ${score} out of 2 in MCQ.`;
-            document.getElementById("feedback").innerHTML = feedback;
+
+            // Clear localStorage (to prevent timer restart on reload)
+            localStorage.removeItem("examEndTime");
         }
+
+        // Check if the exam was already started
+        window.onload = () => {
+            const endTime = parseInt(localStorage.getItem("examEndTime"), 10);
+            if (endTime && Date.now() < endTime) {
+                // Exam is in progress
+                startPage.style.display = "none";
+                examPage.style.display = "block";
+                startTimer();
+            } else if (endTime && Date.now() >= endTime) {
+                // Time's up
+                startPage.style.display = "none";
+                timeUpMessage.style.display = "block";
+            }
+        };
     </script>
 </body>
     </html>
