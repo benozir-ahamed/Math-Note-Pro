@@ -3,11 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MCQ Exam</title>
+    <title>Class 6 Mathematics Exam</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
         }
         #examPage, #resultPage, #timeUpMessage {
             display: none;
@@ -15,10 +29,32 @@
         #timer {
             font-size: 20px;
             font-weight: bold;
+            text-align: center;
             margin-bottom: 20px;
         }
         .question {
             margin-bottom: 20px;
+        }
+        .question p {
+            font-weight: bold;
+            color: #444;
+        }
+        .question input[type="file"] {
+            margin-top: 10px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
         }
         .correct-answer {
             color: green;
@@ -31,56 +67,88 @@
     </style>
 </head>
 <body>
-    <div id="timer">Time Left: </div>
+    <div class="container">
+        <!-- Start Exam Page -->
+        <div id="startPage">
+            <h1>Class 6 Mathematics Exam</h1>
+            <p style="text-align: center;">Click the button below to start the exam.</p>
+            <button onclick="startExam()">Start Exam</button>
+        </div>
 
-    <!-- Exam Page -->
-    <div id="examPage">
-        <h2>Class 6 Mathematics Exam - MCQ</h2>
-        <form id="examForm">
-            <!-- Question 1 -->
-            <div class="question">
-                <p>1. Which of the following is divisible by 3?</p>
-                <input type="radio" id="mcq1_option1" name="mcq1" value="123">
-                <label for="mcq1_option1">123</label><br>
-                <input type="radio" id="mcq1_option2" name="mcq1" value="124">
-                <label for="mcq1_option2">124</label><br>
-            </div>
+        <!-- Timer -->
+        <div id="timer">Time Left: </div>
 
-            <!-- Question 2 -->
-            <div class="question">
-                <p>2. Find the HCF of 18 and 30:</p>
-                <input type="radio" id="mcq2_option1" name="mcq2" value="6">
-                <label for="mcq2_option1">6</label><br>
-                <input type="radio" id="mcq2_option2" name="mcq2" value="12">
-                <label for="mcq2_option2">12</label><br>
-            </div>
+        <!-- Exam Page -->
+        <div id="examPage">
+            <h2>Class 6 Mathematics Exam</h2>
+            <form id="examForm">
+                <!-- MCQ Questions -->
+                <div class="question">
+                    <p>1. Which of the following is divisible by 3?</p>
+                    <input type="radio" id="mcq1_option1" name="mcq1" value="123">
+                    <label for="mcq1_option1">123</label><br>
+                    <input type="radio" id="mcq1_option2" name="mcq1" value="124">
+                    <label for="mcq1_option2">124</label><br>
+                </div>
 
-            <button type="button" onclick="submitMCQ()">Submit</button>
-        </form>
-    </div>
+                <div class="question">
+                    <p>2. Find the HCF of 18 and 30:</p>
+                    <input type="radio" id="mcq2_option1" name="mcq2" value="6">
+                    <label for="mcq2_option1">6</label><br>
+                    <input type="radio" id="mcq2_option2" name="mcq2" value="12">
+                    <label for="mcq2_option2">12</label><br>
+                </div>
 
-    <!-- Result Page -->
-    <div id="resultPage">
-        <h2>Result</h2>
-        <p id="score"></p>
-        <div id="feedback"></div>
-    </div>
+                <!-- Long Questions -->
+                <div class="question">
+                    <p>3. Write the number 407,036 in words (Upload your written answer):</p>
+                    <input type="file" id="fileUpload1" accept="image/*,application/pdf">
+                </div>
 
-    <!-- Time's Up Message -->
-    <div id="timeUpMessage">
-        <h2>Time's Up!</h2>
-        <p>The exam has ended. You can no longer submit your answers.</p>
+                <div class="question">
+                    <p>4. Explain the divisibility rule of 9 (Upload your written answer):</p>
+                    <input type="file" id="fileUpload2" accept="image/*,application/pdf">
+                </div>
+
+                <div class="question">
+                    <p>5. Find the GCF of 36, 48, and 60 (Upload your answer):</p>
+                    <input type="file" id="fileUpload3" accept="image/*,application/pdf">
+                </div>
+
+                <button type="button" onclick="submitExam()">Submit Exam</button>
+            </form>
+        </div>
+
+        <!-- Result Page -->
+        <div id="resultPage">
+            <h2>Result</h2>
+            <p id="score"></p>
+            <div id="feedback"></div>
+        </div>
+
+        <!-- Time's Up Message -->
+        <div id="timeUpMessage">
+            <h2>Time's Up!</h2>
+            <p>The exam has ended. You can no longer submit your answers.</p>
+        </div>
     </div>
 
     <script>
         // Timer settings
-        let timeLeft = 5 * 60; // Example: 5 minutes
+        let timeLeft = 10 * 60; // Example: 10 minutes
         const timerDiv = document.getElementById("timer");
+        const startPage = document.getElementById("startPage");
         const examPage = document.getElementById("examPage");
+        const resultPage = document.getElementById("resultPage");
         const timeUpMessage = document.getElementById("timeUpMessage");
 
+        function startExam() {
+            startPage.style.display = "none";
+            examPage.style.display = "block";
+            startTimer();
+        }
+
         function startTimer() {
-            examPage.style.display = "block"; // Show exam page
             const timerInterval = setInterval(() => {
                 const minutes = Math.floor(timeLeft / 60);
                 const seconds = timeLeft % 60;
@@ -89,8 +157,8 @@
                 if (timeLeft <= 0) {
                     clearInterval(timerInterval);
                     timerDiv.textContent = "Time's up!";
-                    examPage.style.display = "none"; // Hide exam page
-                    timeUpMessage.style.display = "block"; // Show time's up message
+                    examPage.style.display = "none";
+                    timeUpMessage.style.display = "block";
                 }
 
                 timeLeft--;
@@ -103,12 +171,12 @@
             mcq2: "6"
         };
 
-        function submitMCQ() {
+        function submitExam() {
             const mcq1 = document.querySelector('input[name="mcq1"]:checked');
             const mcq2 = document.querySelector('input[name="mcq2"]:checked');
 
             if (!mcq1 || !mcq2) {
-                alert("Please answer all questions before submitting!");
+                alert("Please answer all MCQ questions!");
                 return;
             }
 
@@ -132,14 +200,11 @@
             }
 
             // Show result
-            document.getElementById("examPage").style.display = "none";
-            document.getElementById("resultPage").style.display = "block";
-            document.getElementById("score").textContent = `You scored ${score} out of 2.`;
+            examPage.style.display = "none";
+            resultPage.style.display = "block";
+            document.getElementById("score").textContent = `You scored ${score} out of 2 in MCQ.`;
             document.getElementById("feedback").innerHTML = feedback;
         }
-
-        // Start the timer when the page loads
-        window.onload = startTimer;
     </script>
 </body>
-                  </html>
+    </html>
