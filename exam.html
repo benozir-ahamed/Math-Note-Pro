@@ -111,9 +111,20 @@
         #restartButton:hover {
             background-color: #218838;
         }
+        p {
+            text-align: center;
+            color: black;
+            font-family: courier;
+        }
     </style>
 </head>
 <body>
+    <p>
+        <h1>Instructor</h1>
+        <h2>Benozir Ahamed</h2>
+        <h3>University Of Rajshahi</h3>
+        <h4>B.Sc. in Applied Mathematics</h4>
+    </p>
     <div class="container">
         <!-- Start Exam Page -->
         <div id="startPage">
@@ -163,55 +174,7 @@
         <!-- Restart Exam -->
         <button id="restartButton" onclick="restartExam()">Restart Exam</button>
     </div>
-    <div class="container">
-        <!-- Start Exam Page -->
-        <div id="startPage">
-            <h1>Class 6 Mathematics Exam</h1>
-            <p style="text-align: center;">Click the button below to start the exam.</p>
-            <button id="startButton" onclick="startExam()">Start Exam</button>
-        </div>
-
-        <!-- Timer -->
-        <div id="timer">Time Left:</div>
-
-        <!-- Exam Page -->
-        <div id="examPage">
-            <h2>Class 6 Mathematics Exam</h2>
-            <form id="examForm">
-                <!-- Example Questions -->
-                <div class="question">
-                    <p>1. Write the number 3456 in words.</p>
-                </div>
-
-                <div class="question">
-                    <p>2. What is the HCF of 18 and 30? Explain your answer.</p>
-                </div>
-
-                <div class="question">
-                    <p>3. Explain the divisibility rule for 3 and give an example.</p>
-                </div>
-
-                <div class="question">
-                    <p>4. Write the divisibility rule for 4 and demonstrate it with an example.</p>
-                </div>
-
-                <div class="question">
-                    <p>5. What is the GCF of 12, 18, and 24? Provide steps to find it.</p>
-                </div>
-
-                <button type="button" onclick="submitExam()">Submit Exam</button>
-            </form>
-        </div>
-
-        <!-- Time's Up Message -->
-        <div id="timeUpMessage">
-            <h2>Time's Up!</h2>
-            <p>The exam has ended. You can no longer submit your answers.</p>
-        </div>
-
-        <!-- Restart Exam -->
-        <button id="restartButton" onclick="restartExam()">Restart Exam</button>
-    </div>
+    
 
     <script>
         const totalTime = 10; // 10 minutes in seconds
