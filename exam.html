@@ -98,6 +98,19 @@
         #resultPage {
             display: none;
         }
+
+        #restartButton {
+            display: none;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #restartButton:hover {
+            background-color: #218838;
+        }
     </style>
 </head>
 <body>
@@ -116,7 +129,7 @@
         <div id="examPage">
             <h2>Class 6 Mathematics Exam</h2>
             <form id="examForm">
-                <!-- L ong Questions -->
+                <!-- Example Questions -->
                 <div class="question">
                     <p>1. Write the number 3456 in words.</p>
                 </div>
@@ -146,28 +159,28 @@
             <h2>Time's Up!</h2>
             <p>The exam has ended. You can no longer submit your answers.</p>
         </div>
+
+        <!-- Restart Exam -->
+        <button id="restartButton" onclick="restartExam()">Restart Exam</button>
     </div>
 
     <script>
-        // Timer settings
         const totalTime = 10 * 60; // 10 minutes in seconds
         const timerDiv = document.getElementById("timer");
         const startPage = document.getElementById("startPage");
         const examPage = document.getElementById("examPage");
         const timeUpMessage = document.getElementById("timeUpMessage");
+        const restartButton = document.getElementById("restartButton");
 
         function startExam() {
             const startTime = Date.now();
-            const endTime = startTime + totalTime * 1000; // Calculate end time
+            const endTime = startTime + totalTime * 1000;
 
-            // Save end time in localStorage
             localStorage.setItem("examEndTime", endTime);
 
-            // Hide start page and show exam page
             startPage.style.display = "none";
             examPage.style.display = "block";
 
-            // Start the timer
             startTimer();
         }
 
@@ -177,7 +190,7 @@
 
             const timerInterval = setInterval(() => {
                 const currentTime = Date.now();
-                const timeLeft = Math.max(0, Math.floor((endTime - currentTime) / 1000)); // Calculate time left in seconds
+                const timeLeft = Math.max(0, Math.floor((endTime - currentTime) / 1000));
 
                 const minutes = Math.floor(timeLeft / 60);
                 const seconds = timeLeft % 60;
@@ -189,35 +202,36 @@
                     timerDiv.textContent = "Time's up!";
                     examPage.style.display = "none";
                     timeUpMessage.style.display = "block";
+                    restartButton.style.display = "block";
                 }
             }, 1000);
         }
 
         function submitExam() {
-            // Hide exam page
             examPage.style.display = "none";
-
-            // Show result page
             timeUpMessage.style.display = "block";
-
-            // Clear localStorage (to prevent timer restart on reload)
             localStorage.removeItem("examEndTime");
         }
 
-        // Check if the exam was already started
+        function restartExam() {
+            localStorage.removeItem("examEndTime");
+            timeUpMessage.style.display = "none";
+            restartButton.style.display = "none";
+            startPage.style.display = "block";
+        }
+
         window.onload = () => {
             const endTime = parseInt(localStorage.getItem("examEndTime"), 10);
             if (endTime && Date.now() < endTime) {
-                // Exam is in progress
                 startPage.style.display = "none";
                 examPage.style.display = "block";
                 startTimer();
             } else if (endTime && Date.now() >= endTime) {
-                // Time's up
                 startPage.style.display = "none";
                 timeUpMessage.style.display = "block";
+                restartButton.style.display = "block";
             }
         };
     </script>
 </body>
-                                      </html>
+</html>
