@@ -28,6 +28,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         .logo {
@@ -56,6 +59,20 @@
 
         .nav-links a:hover {
             color: #ff9f00;
+        }
+
+        /* Search Bar */
+        .search-bar {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .search-bar input {
+            padding: 10px;
+            font-size: 18px;
+            border-radius: 5px;
+            width: 80%;
+            max-width: 600px;
         }
 
         /* Banner */
@@ -176,6 +193,35 @@
             color: #ff9f00;
         }
 
+        /* Testimonials Section */
+        .testimonials {
+            padding: 60px 20px;
+            background-color: #f7f8fc;
+            text-align: center;
+        }
+
+        .testimonials h3 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #3a539b;
+        }
+
+        .testimonial-cards {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            padding: 20px;
+            width: 280px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
         /* Media Query for Responsiveness */
         @media (max-width: 768px) {
             .nav-links {
@@ -196,6 +242,11 @@
                 font-size: 18px;
                 padding: 12px 30px;
             }
+
+            .testimonial-cards {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
@@ -215,7 +266,19 @@
         </div>
     </header>
 
-    
+    <!-- Search Bar -->
+    <section class="search-bar">
+        <input type="text" placeholder="Search for Exams or Courses...">
+    </section>
+
+    <!-- Banner -->
+    <section class="banner">
+        <h2>Welcome to EduSpark</h2>
+        <p>Your gateway to quality education and exams!</p>
+        <a href="#" class="btn">Explore Now</a>
+    </section>
+
+    <!-- Exams Section -->
     <section class="exams">
         <div class="container">
             <h2>Available Exams</h2>
@@ -229,6 +292,22 @@
         </div>
     </section>
 
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h3>What Our Students Say</h3>
+        <div class="testimonial-cards">
+            <div class="testimonial-card">
+                <p>"EduSpark has been a great resource for my studies. The exams are very helpful!"</p>
+                <p>- Student 1</p>
+            </div>
+            <div class="testimonial-card">
+                <p>"I love the interactive exams! It's a great way to prepare for my exams."</p>
+                <p>- Student 2</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
         <div class="container">
             <p>© 2025 EduSpark. All rights reserved.</p>
@@ -247,4 +326,4 @@
         }
     </script>
 </body>
-            </html>
+</html>
