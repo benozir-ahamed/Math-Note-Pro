@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EduElite</title>
+    <title>EduSpark</title>
     <style>
         /* General Styles */
         body {
             font-family: "Poppins", Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f7f8fc;
             color: #333;
-            background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
-            overflow-x: hidden;
         }
 
         .container {
@@ -23,7 +22,7 @@
 
         /* Header */
         header {
-            background-color: #212529;
+            background-color: #3a539b;
             color: white;
             padding: 20px 0;
             display: flex;
@@ -32,155 +31,130 @@
         }
 
         .logo {
-            font-size: 30px;
-            font-weight: bold;
-            color: #ffc107;
-            margin-left: 20px;
+            font-size: 32px;
+            font-weight: 700;
+            color: #fff;
+            margin-left: 30px;
         }
 
         .nav-links {
             list-style: none;
-            padding: 0;
             display: flex;
-            gap: 20px;
+            gap: 30px;
+            padding: 0;
+            margin-right: 30px;
         }
 
         .nav-links a {
             color: white;
             text-decoration: none;
             font-weight: 600;
-            font-size: 16px;
-            transition: color 0.3s;
+            font-size: 18px;
+            transition: color 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: #ffc107;
+            color: #ff9f00;
         }
 
         /* Banner */
         .banner {
-            background: linear-gradient(to right, #212529, #495057);
+            background: linear-gradient(to right, #3a539b, #4c6fbb);
             color: white;
             text-align: center;
             padding: 80px 20px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .banner::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -50px;
-            width: 120%;
-            height: 120%;
-            background: rgba(255, 255, 255, 0.05);
-            clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
-            z-index: 0;
-        }
-
-        .banner-content {
-            position: relative;
-            z-index: 1;
         }
 
         .banner h2 {
             font-size: 48px;
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            margin-bottom: 20px;
         }
 
         .banner p {
-            font-size: 20px;
-            margin: 20px 0;
+            font-size: 22px;
+            margin-bottom: 40px;
         }
 
         .btn {
-            background-color: #ffc107;
-            color: #212529;
-            padding: 12px 30px;
+            background-color: #ff9f00;
+            color: white;
+            padding: 14px 30px;
             text-decoration: none;
             font-weight: bold;
-            border-radius: 50px;
-            font-size: 16px;
-            transition: background 0.3s, transform 0.3s;
-            position: relative;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
         }
 
         .btn:hover {
-            background-color: #e0a800;
-            transform: scale(1.1);
+            background-color: #e68900;
         }
 
         /* Exams Section */
         .exams {
             text-align: center;
-            padding: 70px 20px;
-            background: linear-gradient(to right, #e9ecef, #f8f9fa);
+            padding: 60px 20px;
+            background-color: #f1f1f1;
         }
 
         .exams h2 {
-            font-size: 40px;
-            font-weight: bold;
-            color: #212529;
-        }
-
-        .exam-list {
-            margin-top: 30px;
-            display: inline-block;
+            font-size: 38px;
+            font-weight: 700;
+            color: #3a539b;
+            margin-bottom: 30px;
         }
 
         .exam-dropdown-btn {
-            background-color: #495057;
+            background-color: #4c6fbb;
             color: white;
-            padding: 15px 30px;
+            padding: 15px 35px;
+            font-size: 20px;
             border: none;
             border-radius: 8px;
-            font-size: 18px;
             cursor: pointer;
-            transition: background 0.3s, transform 0.3s;
+            transition: background-color 0.3s ease;
         }
 
         .exam-dropdown-btn:hover {
-            background-color: #212529;
-            transform: scale(1.05);
+            background-color: #3a539b;
         }
 
         #exam-list {
             list-style: none;
             padding: 0;
-            margin: 20px auto 0;
+            margin-top: 20px;
             display: none;
-            max-width: 400px;
             text-align: left;
+            max-width: 350px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         #exam-list li {
             background-color: white;
-            margin: 10px 0;
-            padding: 15px 20px;
-            border-radius: 10px;
+            margin: 8px 0;
+            padding: 12px;
+            border-radius: 6px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-
-        #exam-list li:hover {
-            transform: translateX(10px);
         }
 
         #exam-list li a {
             text-decoration: none;
-            color: #495057;
+            color: #ff9f00;
             font-weight: bold;
         }
 
         /* Footer */
         footer {
-            background-color: #212529;
+            background-color: #3a539b;
             color: white;
-            padding: 20px 0;
+            padding: 40px 20px;
             text-align: center;
+        }
+
+        footer p {
+            margin: 10px 0;
         }
 
         .social-links {
@@ -188,25 +162,46 @@
             padding: 0;
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 25px;
         }
 
         .social-links a {
             color: white;
             text-decoration: none;
             font-size: 20px;
-            transition: color 0.3s;
         }
 
         .social-links a:hover {
-            color: #ffc107;
+            color: #ff9f00;
+        }
+
+        /* Media Query for Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .banner h2 {
+                font-size: 36px;
+            }
+
+            .banner p {
+                font-size: 18px;
+            }
+
+            .exam-dropdown-btn {
+                font-size: 18px;
+                padding: 12px 30px;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <h1 class="logo">EduElite</h1>
+            <h1 class="logo">EduSpark</h1>
             <nav>
                 <ul class="nav-links">
                     <li><a href="#">Home</a></li>
@@ -220,18 +215,18 @@
     </header>
 
     <section class="banner">
-        <div class="banner-content">
-            <h2>Empower Your Future with EduElite</h2>
-            <p>Join our world-class courses and excel in your exams.</p>
+        <div class="container">
+            <h2>Unlock Your Future with EduSpark</h2>
+            <p>Join our premium courses and take your career to new heights.</p>
             <a href="#" class="btn">Get Started</a>
         </div>
     </section>
 
     <section class="exams">
-        <h2>Available Exams</h2>
-        <div class="exam-list">
+        <div class="container">
+            <h2>Available Exams</h2>
             <button class="exam-dropdown-btn" onclick="toggleExamList()">Class 6 Mathematics Exam</button>
-            <ul id="exam-list" class="hidden">
+            <ul id="exam-list">
                 <li><a href="#">Exam 1</a></li>
                 <li><a href="#">Exam 2</a></li>
                 <li><a href="#">Exam 3</a></li>
@@ -242,7 +237,7 @@
 
     <footer>
         <div class="container">
-            <p>© 2025 EduElite. All rights reserved.</p>
+            <p>© 2025 EduSpark. All rights reserved.</p>
             <ul class="social-links">
                 <li><a href="#">Facebook</a></li>
                 <li><a href="#">Twitter</a></li>
@@ -254,7 +249,7 @@
     <script>
         function toggleExamList() {
             const examList = document.getElementById('exam-list');
-            examList.classList.toggle('hidden');
+            examList.style.display = examList.style.display === 'block' ? 'none' : 'block';
         }
     </script>
 </body>
