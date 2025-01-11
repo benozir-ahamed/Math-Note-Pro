@@ -24,14 +24,15 @@
         header {
             background-color: #3a539b;
             color: white;
-            padding: 4px 0;
+            padding: 5px 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
         }
 
         .logo {
-            font-size: 32px;
+           font-size: 32px;
             font-weight: 700;
             color: #fff;
             margin-left: 0;
@@ -57,26 +58,22 @@
             color: #ff9f00;
         }
 
-        /* Search Bar */
-        .search-bar {
-            padding: 8px 15px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin-left: 20px;
-            display: none; /* Initially hide the search bar */
-            transition: all 0.3s ease; /* Smooth transition for visibility */
-        }
-
+        /* Hamburger Menu */
         .hamburger-menu {
             display: none; /* Hidden by default */
             font-size: 30px;
             cursor: pointer;
-            transition: transform 0.3s ease; /* Add smooth animation for transformation */
+            position: absolute;
+            right: 20px;
+            top: 15px;
         }
 
-        .hamburger-menu:hover {
-            transform: rotate(90deg); /* Rotate on hover */
+        .hamburger-menu div {
+            width: 30px;
+            height: 4px;
+            background-color: white;
+            margin: 6px 0;
+            transition: 0.4s;
         }
 
         /* Banner */
@@ -84,7 +81,7 @@
             background: linear-gradient(to right, #3a539b, #4c6fbb);
             color: white;
             text-align: center;
-            padding: 80px 20px;
+            padding: 10px 5px;
         }
 
         .banner h2 {
@@ -204,6 +201,12 @@
                 flex-direction: column;
                 gap: 15px;
                 align-items: center;
+                width: 100%;
+                background-color: #3a539b;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                padding: 10px 0;
             }
 
             .nav-links.active {
@@ -212,12 +215,6 @@
 
             .hamburger-menu {
                 display: block; /* Show hamburger menu in mobile view */
-            }
-
-            .search-bar {
-                display: block; /* Show search bar in mobile view */
-                margin-top: 10px;
-                width: 80%;
             }
 
             .banner h2 {
@@ -247,11 +244,11 @@
                     <li><a href="#">About Us</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
-                <!-- Search Bar -->
-                <input type="text" id="search-bar" class="search-bar" placeholder="Search..." onkeyup="searchFunction()" />
                 <!-- Hamburger Icon for Mobile View -->
                 <div class="hamburger-menu" onclick="toggleMenu()">
-                    <span>☰</span>
+                    <div></div>
+                    <div></div>
+                    <div></div>
                 </div>
             </nav>
         </div>
@@ -296,20 +293,6 @@
             navLinks.classList.toggle("active");
         }
 
-        // Function to search through items (Example: Courses or Exams)
-        function searchFunction() {
-            const input = document.getElementById('search-bar').value.toLowerCase();
-            const navItems = document.querySelectorAll('.nav-links a');
-            
-            navItems.forEach(function(item) {
-                if (item.innerHTML.toLowerCase().includes(input)) {
-                    item.style.display = "block";  // Show item if it matches the search query
-                } else {
-                    item.style.display = "none";   // Hide item if it doesn't match
-                }
-            });
-        }
-
         // Toggle exam dropdown
         function toggleExamList() {
             const examList = document.getElementById('exam-list');
@@ -317,4 +300,4 @@
         }
     </script>
 </body>
-</html>
+    </html>
