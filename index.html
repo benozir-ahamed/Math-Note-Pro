@@ -24,25 +24,17 @@
         header {
             background-color: #3a539b;
             color: white;
-            padding: 15px 20px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            padding: 20px 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .logo {
             font-size: 32px;
             font-weight: 700;
             color: #fff;
-        }
-
-        nav {
-            display: flex;
-            align-items: center;
+            margin-left: 5px;
         }
 
         .nav-links {
@@ -50,7 +42,7 @@
             display: flex;
             gap: 30px;
             padding: 0;
-            margin: 0;
+            margin-right: 30px;
         }
 
         .nav-links a {
@@ -65,53 +57,143 @@
             color: #ff9f00;
         }
 
-        /* Mobile Menu Button */
-        .menu-btn {
-            display: none;
-            font-size: 24px;
+        /* Banner */
+        .banner {
+            background: linear-gradient(to right, #3a539b, #4c6fbb);
             color: white;
-            background: none;
-            border: none;
-            cursor: pointer;
+            text-align: center;
+            padding: 80px 20px;
         }
 
-        .menu-btn:focus {
-            outline: none;
+        .banner h2 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
         }
 
-        /* Dropdown Menu (Mobile) */
-        .nav-links-mobile {
-            display: none;
-            flex-direction: column;
-            gap: 15px;
-            margin-top: 10px;
-            background-color: #3a539b;
-            border-radius: 8px;
-            padding: 15px;
+        .banner p {
+            font-size: 22px;
+            margin-bottom: 40px;
         }
 
-        .nav-links-mobile a {
-            padding: 10px 15px;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-
-        .nav-links-mobile a:hover {
+        .btn {
             background-color: #ff9f00;
+            color: white;
+            padding: 14px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
         }
 
-        .show {
+        .btn:hover {
+            background-color: #e68900;
+        }
+
+        /* Exams Section */
+        .exams {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: #f1f1f1;
+        }
+
+        .exams h2 {
+            font-size: 38px;
+            font-weight: 700;
+            color: #3a539b;
+            margin-bottom: 30px;
+        }
+
+        .exam-dropdown-btn {
+            background-color: #4c6fbb;
+            color: white;
+            padding: 15px 35px;
+            font-size: 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .exam-dropdown-btn:hover {
+            background-color: #3a539b;
+        }
+
+        #exam-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+            display: none;
+            text-align: left;
+            max-width: 350px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #exam-list li {
+            background-color: white;
+            margin: 8px 0;
+            padding: 12px;
+            border-radius: 6px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #exam-list li a {
+            text-decoration: none;
+            color: #ff9f00;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #3a539b;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        .social-links {
+            list-style: none;
+            padding: 0;
             display: flex;
+            justify-content: center;
+            gap: 25px;
         }
 
-        /* Media Queries */
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        .social-links a:hover {
+            color: #ff9f00;
+        }
+
+        /* Media Query for Responsiveness */
         @media (max-width: 768px) {
             .nav-links {
-                display: none;
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
             }
 
-            .menu-btn {
-                display: block;
+            .banner h2 {
+                font-size: 36px;
+            }
+
+            .banner p {
+                font-size: 18px;
+            }
+
+            .exam-dropdown-btn {
+                font-size: 18px;
+                padding: 12px 30px;
             }
         }
     </style>
@@ -124,15 +206,7 @@
                 <ul class="nav-links">
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Courses</a></li>
-                    <li><a href="#">Exams</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-                <button class="menu-btn" onclick="toggleMenu()">☰</button>
-                <ul class="nav-links-mobile" id="mobile-menu">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Courses</a></li>
-                    <li><a href="#">Exams</a></li>
+                    <li><a href="#exam-dropdown-btn">Exams</a></li>
                     <li><a href="#">About Us</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
@@ -153,7 +227,7 @@
             <h2>Available Exams</h2>
             <button class="exam-dropdown-btn" onclick="toggleExamList()">Class 6 Mathematics Exam</button>
             <ul id="exam-list">
-                <li><a href="#">Exam 1</a></li>
+                <li><a href="exam.html">Exam 1</a></li>
                 <li><a href="#">Exam 2</a></li>
                 <li><a href="#">Exam 3</a></li>
                 <li><a href="#">More...</a></li>
@@ -173,15 +247,10 @@
     </footer>
 
     <script>
-        function toggleMenu() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('show');
-        }
-
         function toggleExamList() {
             const examList = document.getElementById('exam-list');
             examList.style.display = examList.style.display === 'block' ? 'none' : 'block';
         }
     </script>
 </body>
-</html>
+            </html>
