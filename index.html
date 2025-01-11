@@ -5,122 +5,173 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Study Course</title>
     <link rel="stylesheet" href="styles.css">
-    /* General Styles */
     <style>
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    color: #333;
-    background-color: #f9f9f9;
-}
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f9f9f9;
+        }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-/* Header */
-header {
-    background-color: #0056b3;
-    color: white;
-    padding: 15px 0;
-}
+        /* Header */
+        header {
+            background-color: #0056b3;
+            color: white;
+            padding: 15px 0;
+        }
 
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-}
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
 
-.nav-links {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    gap: 20px;
-}
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
 
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-/* Banner */
-.banner {
-    background: linear-gradient(to right, #0056b3, #007bff);
-    color: white;
-    text-align: center;
-    padding: 50px 20px;
-}
+        /* Banner */
+        .banner {
+            background: linear-gradient(to right, #0056b3, #007bff);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
 
-.banner h2 {
-    font-size: 36px;
-}
+        .banner h2 {
+            font-size: 36px;
+        }
 
-.banner p {
-    font-size: 18px;
-    margin: 20px 0;
-}
+        .banner p {
+            font-size: 18px;
+            margin: 20px 0;
+        }
 
-.btn {
-    background-color: #ff9800;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-}
+        .btn {
+            background-color: #ff9800;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+        }
 
-/* Courses Section */
-.courses {
-    text-align: center;
-    padding: 50px 20px;
-    background-color: #f1f1f1;
-}
+        /* Courses Section */
+        .courses {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #f1f1f1;
+        }
 
-.course-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
-}
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
 
-.course {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
+        .course {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
 
-/* Testimonials */
-.testimonials {
-    text-align: center;
-    padding: 50px 20px;
-    background-color: #fff;
-}
+        /* Exams Section */
+        .exams {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #f9f9f9;
+        }
 
-/* Footer */
-footer {
-    background-color: #333;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-}
+        .exam-list {
+            margin-top: 20px;
+        }
 
-.social-links {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
+        .exam-dropdown-btn {
+            background-color: #0056b3;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
 
-.social-links a {
-    color: white;
-    text-decoration: none;
-}
-</style>
+        .exam-dropdown-btn:hover {
+            background-color: #004094;
+        }
+
+        #exam-list {
+            list-style: none;
+            padding: 0;
+            margin: 10px auto;
+            display: none;
+            max-width: 300px;
+        }
+
+        #exam-list li {
+            background-color: white;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        #exam-list a {
+            text-decoration: none;
+            color: #0056b3;
+            font-weight: bold;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #fff;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .social-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -130,6 +181,7 @@ footer {
                 <ul class="nav-links">
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Courses</a></li>
+                    <li><a href="#">Exams</a></li>
                     <li><a href="#">About Us</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
@@ -142,6 +194,19 @@ footer {
             <h2>Unlock Your Potential</h2>
             <p>Join our premium courses to achieve your dreams.</p>
             <a href="#" class="btn">Get Started</a>
+        </div>
+    </section>
+
+ <section class="exams">
+        <h2>Available Exams</h2>
+        <div class="exam-list">
+            <button class="exam-dropdown-btn" onclick="toggleExamList()">Class 6 Mathematics Exam</button>
+            <ul id="exam-list" class="hidden">
+                <li><a href="#">Exam 1</a></li>
+                <li><a href="#">Exam 2</a></li>
+                <li><a href="#">Exam 3</a></li>
+                <li><a href="#">More</a></li>
+            </ul>
         </div>
     </section>
 
@@ -183,5 +248,12 @@ footer {
             </ul>
         </div>
     </footer>
+
+    <script>
+        function toggleExamList() {
+            const examList = document.getElementById('exam-list');
+            examList.classList.toggle('hidden');
+        }
+    </script>
 </body>
-</html>
+                                                         </html>
