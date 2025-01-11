@@ -28,9 +28,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
         }
 
         .logo {
@@ -63,16 +60,24 @@
 
         /* Search Bar */
         .search-bar {
-            margin-top: 10px;
-            text-align: center;
+            padding: 8px 15px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-left: 20px;
+            display: none; /* Initially hide the search bar */
+            transition: all 0.3s ease; /* Smooth transition for visibility */
         }
 
-        .search-bar input {
-            padding: 10px;
-            font-size: 18px;
-            border-radius: 5px;
-            width: 80%;
-            max-width: 600px;
+        .hamburger-menu {
+            display: none; /* Hidden by default */
+            font-size: 30px;
+            cursor: pointer;
+            transition: transform 0.3s ease; /* Add smooth animation for transformation */
+        }
+
+        .hamburger-menu:hover {
+            transform: rotate(90deg); /* Rotate on hover */
         }
 
         /* Banner */
@@ -193,41 +198,27 @@
             color: #ff9f00;
         }
 
-        /* Testimonials Section */
-        .testimonials {
-            padding: 60px 20px;
-            background-color: #f7f8fc;
-            text-align: center;
-        }
-
-        .testimonials h3 {
-            font-size: 36px;
-            margin-bottom: 20px;
-            color: #3a539b;
-        }
-
-        .testimonial-cards {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-
-        .testimonial-card {
-            background-color: white;
-            padding: 20px;
-            width: 280px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: left;
-        }
-
         /* Media Query for Responsiveness */
         @media (max-width: 768px) {
             .nav-links {
+                display: none; /* Initially hide the nav links */
                 flex-direction: column;
-                align-items: center;
                 gap: 15px;
+                align-items: center;
+            }
+
+            .nav-links.active {
+                display: flex; /* Show the nav links when the menu is active */
+            }
+
+            .hamburger-menu {
+                display: block; /* Show hamburger menu in mobile view */
+            }
+
+            .search-bar {
+                display: block; /* Show search bar in mobile view */
+                margin-top: 10px;
+                width: 80%;
             }
 
             .banner h2 {
@@ -242,11 +233,6 @@
                 font-size: 18px;
                 padding: 12px 30px;
             }
-
-            .testimonial-cards {
-                flex-direction: column;
-                align-items: center;
-            }
         }
     </style>
 </head>
@@ -255,30 +241,31 @@
         <div class="container">
             <h1 class="logo">EduSpark</h1>
             <nav>
-                <ul class="nav-links">
+                <ul class="nav-links" id="nav-links">
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Courses</a></li>
                     <li><a href="#exam-dropdown-btn">Exams</a></li>
                     <li><a href="#">About Us</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
+                <!-- Search Bar -->
+                <input type="text" id="search-bar" class="search-bar" placeholder="Search..." onkeyup="searchFunction()" />
+                <!-- Hamburger Icon for Mobile View -->
+                <div class="hamburger-menu" onclick="toggleMenu()">
+                    <span>☰</span>
+                </div>
             </nav>
         </div>
     </header>
 
-    <!-- Search Bar -->
-    <section class="search-bar">
-        <input type="text" placeholder="Search for Exams or Courses...">
-    </section>
-
-    <!-- Banner -->
     <section class="banner">
-        <h2>Welcome to EduSpark</h2>
-        <p>Your gateway to quality education and exams!</p>
-        <a href="#" class="btn">Explore Now</a>
+        <div class="container">
+            <h2>Welcome to EduSpark</h2>
+            <p>Your one-stop platform for online education</p>
+            <a href="#" class="btn">Get Started</a>
+        </div>
     </section>
 
-    <!-- Exams Section -->
     <section class="exams">
         <div class="container">
             <h2>Available Exams</h2>
@@ -292,22 +279,6 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-        <h3>What Our Students Say</h3>
-        <div class="testimonial-cards">
-            <div class="testimonial-card">
-                <p>"EduSpark has been a great resource for my studies. The exams are very helpful!"</p>
-                <p>- Student 1</p>
-            </div>
-            <div class="testimonial-card">
-                <p>"I love the interactive exams! It's a great way to prepare for my exams."</p>
-                <p>- Student 2</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
     <footer>
         <div class="container">
             <p>© 2025 EduSpark. All rights reserved.</p>
@@ -320,6 +291,27 @@
     </footer>
 
     <script>
+        // Toggle the nav menu on mobile view
+        function toggleMenu() {
+            const navLinks = document.getElementById("nav-links");
+            navLinks.classList.toggle("active");
+        }
+
+        // Function to search through items (Example: Courses or Exams)
+        function searchFunction() {
+            const input = document.getElementById('search-bar').value.toLowerCase();
+            const navItems = document.querySelectorAll('.nav-links a');
+            
+            navItems.forEach(function(item) {
+                if (item.innerHTML.toLowerCase().includes(input)) {
+                    item.style.display = "block";  // Show item if it matches the search query
+                } else {
+                    item.style.display = "none";   // Hide item if it doesn't match
+                }
+            });
+        }
+
+        // Toggle exam dropdown
         function toggleExamList() {
             const examList = document.getElementById('exam-list');
             examList.style.display = examList.style.display === 'block' ? 'none' : 'block';
