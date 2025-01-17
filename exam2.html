@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1024">
+    <title>Class 6 Mathematics Exam</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        #timer {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #FF5733;
+        }
+
+        #startButton {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-bottom: 20px;
+        }
+
+        #startButton:hover {
+            background-color: #0056b3;
+        }
+
+        .question {
+            margin-bottom: 25px;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        .question p {
+            color: #333;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            color: white;
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        #timeUpMessage {
+            display: none;
+            text-align: center;
+            font-size: 20px;
+            color: #FF5733;
+        }
+
+        #examPage {
+            display: none;
+        }
+
+        #resultPage {
+            display: none;
+        }
+
+        #restartButton {
+            display: none;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #restartButton:hover {
+            background-color: #218838;
+        }
+        h1 {
+            text-align: center;
+            color: black;
+            font-family: courier;
+            text-align: top;
+           
+        }
+    </style>
+</head>
+<body>
+    
+        <h1>Instructor<br>
+        BENOZIR AHAMED HRIDOY<br>
+        University Of Rajshahi<br>
+        B.Sc. in Applied Mathematics</h1>
+    
+    <div class="container">
+        <!-- Start Exam Page -->
+        <div id="startPage">
+            <h1>Class 6 Mathematics Exam</h1>
+            <p style="text-align: center;">Click the button below to start the exam.</p>
+            <button id="startButton" onclick="startExam()">Start Exam</button>
+        </div>
+
+        <!-- Timer -->
+        <div id="timer">Time Left:</div>
+
+        <!-- Exam Page -->
+        <div id=<div>1. Determine H.C.F. using prime factors: (a) 18, 27</div>
+
+<div>2. Determine H.C.F. by division method: (a) 48, 64</div>
+
+<div>3. Determine L.C.M. using prime factors: (a) 10, 15</div>
+
+<div>4. Determine L.C.M. by Euclid’s method: (a) 12, 18</div>
+
+<div>5. What is the greatest number which divides 40 and 60 with the remainder 0 every time?</div>
+
+<div>6. What is the smallest number which is exactly divisible by 4, 6, and 8?</div>
+
+<div>7. Which smallest number will have 2 as the remainder in every case when divided by 5, 7, and 9?</div>
+
+<div>8. Which smallest number will have 1 as the remainder when divided by 3, 4, and 5?</div>
+
+<div>9. Find the L.C.M. of 5, 10, and 15.</div>
+
+<div>10. Find the H.C.F. of 36, 48, and 60.</div>
+
+                
+                <button type="button" onclick="submitExam()">Submit Exam</button>
+            </form>
+        </div>
+
+        <!-- Time's Up Message -->
+        <div id="timeUpMessage">
+            <h2>Time's Up!</h2>
+            <p>The exam has ended. You can no longer submit your answers.</p>
+        </div>
+
+        <!-- Restart Exam -->
+        <button id="restartButton" onclick="restartExam()">Restart Exam</button>
+    </div><br>
+    <br>
+    <div>
+     <button type="button" onclick="Home()"><a href="index.html">Home</a></button> 
+    </div>
+
+    <script>
+        const totalTime = 60*60; // 10 minutes in seconds
+        const timerDiv = document.getElementById("timer");
+        const startPage = document.getElementById("startPage");
+        const examPage = document.getElementById("examPage");
+        const timeUpMessage = document.getElementById("timeUpMessage");
+        const restartButton = document.getElementById("restartButton");
+
+        function startExam() {
+            const startTime = Date.now();
+            const endTime = startTime + totalTime * 1000;
+
+            localStorage.setItem("examEndTime", endTime);
+
+            startPage.style.display = "none";
+            examPage.style.display = "block";
+
+            startTimer();
+        }
+
+        function startTimer() {
+            const endTime = parseInt(localStorage.getItem("examEndTime"), 10);
+            if (!endTime) return;
+
+            const timerInterval = setInterval(() => {
+                const currentTime = Date.now();
+                const timeLeft = Math.max(0, Math.floor((endTime - currentTime) / 1000));
+
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+
+                timerDiv.textContent = `Time Left: ${minutes}m ${seconds}s`;
+
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timerDiv.textContent = "Time's up!";
+                    examPage.style.display = "none";
+                    timeUpMessage.style.display = "block";
+                    restartButton.style.display = "block";
+                }
+            }, 1000);
+        }
+
+        function submitExam() {
+            examPage.style.display = "none";
+            timeUpMessage.style.display = "block";
+            localStorage.removeItem("examEndTime");
+        }
+
+        function restartExam() {
+            localStorage.removeItem("examEndTime");
+            timeUpMessage.style.display = "none";
+            restartButton.style.display = "none";
+            startPage.style.display = "block";
+        }
+
+        window.onload = () => {
+            const endTime = parseInt(localStorage.getItem("examEndTime"), 10);
+            if (endTime && Date.now() < endTime) {
+                startPage.style.display = "none";
+                examPage.style.display = "block";
+                startTimer();
+            } else if (endTime && Date.now() >= endTime) {
+                startPage.style.display = "none";
+                timeUpMessage.style.display = "block";
+                restartButton.style.display = "block";
+            }
+        };
+    </script>
+</body>
+  </html>
