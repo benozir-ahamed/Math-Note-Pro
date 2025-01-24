@@ -3,27 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fractions Example</title>
+    <title>Math Questions</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            line-height: 1.6;
+            line-height: 1.8;
             margin: 20px;
         }
         .fraction {
             display: inline-block;
-            text-align: center;
             vertical-align: middle;
+            text-align: center;
         }
-        .fraction sup {
+        .fraction .top {
+            border-bottom: 1px solid #000;
             display: block;
-            font-size: 14px;
-            line-height: 1;
+            padding: 0 5px;
         }
-        .fraction sub {
+        .fraction .bottom {
             display: block;
-            font-size: 14px;
-            line-height: 1;
+            padding: 0 5px;
         }
         .mixed-number {
             display: inline-flex;
@@ -32,29 +31,88 @@
         .mixed-number .whole {
             margin-right: 5px;
         }
+        .question {
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
-    <h1>Fractions and Mixed Numbers</h1>
+    <h1>Mathematics Exercise</h1>
+    
+    <div class="question">
+        <strong>1. Determine whether the following fractions are equivalent:</strong>
+        <p>
+            (a) <span class="fraction"><span class="top">5</span><span class="bottom">8</span></span> and 
+            <span class="fraction"><span class="top">15</span><span class="bottom">24</span></span>
+        </p>
+        <p>
+            (b) <span class="fraction"><span class="top">7</span><span class="bottom">11</span></span> and 
+            <span class="fraction"><span class="top">14</span><span class="bottom">33</span></span>
+        </p>
+    </div>
 
-    <p>1. Determine whether the following fractions are equivalent:</p>
-    <p>
-        (a) <span class="fraction"><sup>5</sup><span>/</span><sub>8</sub></span> and 
-        <span class="fraction"><sup>15</sup><span>/</span><sub>24</sub></span>
-    </p>
-    <p>
-        (b) <span class="fraction"><sup>7</sup><span>/</span><sub>11</sub></span> and 
-        <span class="fraction"><sup>14</sup><span>/</span><sub>33</sub></span>
-    </p>
+    <div class="question">
+        <strong>2. Express the following fractions with equal denominators:</strong>
+        <p>
+            (a) <span class="fraction"><span class="top">2</span><span class="bottom">5</span></span>, 
+            <span class="fraction"><span class="top">7</span><span class="bottom">10</span></span>, 
+            <span class="fraction"><span class="top">9</span><span class="bottom">40</span></span>
+        </p>
+    </div>
 
-    <p>2. Convert the following to mixed numbers:</p>
-    <p>
-        (a) <span class="mixed-number"><span class="whole">70</span><span class="fraction"><sup>9</sup><span>/</span><sub>10</sub></span></span> m + 
-        <span class="mixed-number"><span class="whole">80</span><span class="fraction"><sup>17</sup><span>/</span><sub>50</sub></span></span> cm
-    </p>
-    <p>
-        (b) <span class="mixed-number"><span class="whole">40</span><span class="fraction"><sup>27</sup><span>/</span><sub>25</sub></span></span> m - 
-        <span class="mixed-number"><span class="whole">17</span><span class="fraction"><sup>9</sup><span>/</span><sub>25</sub></span></span> cm
-    </p>
+    <div class="question">
+        <strong>3. Arrange the following fractions in ascending order:</strong>
+        <p>
+            (a) <span class="fraction"><span class="top">6</span><span class="bottom">7</span></span>, 
+            <span class="fraction"><span class="top">9</span><span class="bottom">21</span></span>, 
+            <span class="fraction"><span class="top">16</span><span class="bottom">50</span></span>, 
+            <span class="fraction"><span class="top">7</span><span class="bottom">63</span></span>
+        </p>
+    </div>
+
+    <div class="question">
+        <strong>4. Convert the following into mixed numbers:</strong>
+        <p>
+            (a) <span class="mixed-number"><span class="whole">70</span><span class="fraction"><span class="top">9</span><span class="bottom">10</span></span></span> m + 
+            <span class="mixed-number"><span class="whole">80</span><span class="fraction"><span class="top">17</span><span class="bottom">50</span></span></span> cm
+        </p>
+        <p>
+            (b) <span class="mixed-number"><span class="whole">40</span><span class="fraction"><span class="top">27</span><span class="bottom">25</span></span></span> m - 
+            <span class="mixed-number"><span class="whole">17</span><span class="fraction"><span class="top">9</span><span class="bottom">25</span></span></span> cm
+        </p>
+    </div>
+
+    <div class="question">
+        <strong>5. Add the following fractions:</strong>
+        <p>
+            (a) <span class="fraction"><span class="top">5</span><span class="bottom">8</span></span> + 
+            <span class="fraction"><span class="top">3</span><span class="bottom">16</span></span>
+        </p>
+        <p>
+            (b) <span class="fraction"><span class="top">6</span><span class="bottom">7</span></span> + 
+            <span class="fraction"><span class="top">1</span><span class="bottom">7</span></span>
+        </p>
+    </div>
+
+    <div class="question">
+        <strong>6. Subtract the following fractions:</strong>
+        <p>
+            (a) <span class="fraction"><span class="top">3</span><span class="bottom">8</span></span> - 
+            <span class="fraction"><span class="top">1</span><span class="bottom">2</span></span>
+        </p>
+        <p>
+            (b) <span class="fraction"><span class="top">4</span><span class="bottom">15</span></span> - 
+            <span class="fraction"><span class="top">13</span><span class="bottom">45</span></span>
+        </p>
+    </div>
+
+    <div class="question">
+        <strong>7. Arrange the following fractions in descending order:</strong>
+        <p>
+            (a) <span class="fraction"><span class="top">3</span><span class="bottom">4</span></span>, 
+            <span class="fraction"><span class="top">6</span><span class="bottom">7</span></span>, 
+            <span class="fraction"><span class="top">5</span><span class="bottom">12</span></span>
+        </p>
+    </div>
 </body>
 </html>
