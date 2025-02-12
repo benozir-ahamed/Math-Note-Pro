@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1024">
+    <title>Class 6 Mathematics Exam</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        #timer {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #FF5733;
+        }
+
+        #startButton {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-bottom: 20px;
+        }
+
+        #startButton:hover {
+            background-color: #0056b3;
+        }
+
+        .question {
+            margin-bottom: 25px;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        .question p {
+            color: #333;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            color: white;
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        #timeUpMessage {
+            display: none;
+            text-align: center;
+            font-size: 20px;
+            color: #FF5733;
+        }
+
+        #examPage {
+            display: none;
+        }
+
+        #resultPage {
+            display: none;
+        }
+
+        #restartButton {
+            display: none;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #restartButton:hover {
+            background-color: #218838;
+        }
+        h1 {
+            text-align: center;
+            color: black;
+            font-family: courier;
+            text-align: top;
+           
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.8;
+            margin: 20px;
+        }
+        .fraction {
+            display: inline-block;
+            vertical-align: middle;
+            text-align: center;
+        }
+        .fraction .top {
+            border-bottom: 1px solid #000;
+            display: block;
+            padding: 0 5px;
+        }
+        .fraction .bottom {
+            display: block;
+            padding: 0 5px;
+        }
+        .mixed-number {
+            display: inline-flex;
+            align-items: center;
+        }
+        .mixed-number .whole {
+            margin-right: 5px;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+  <h1>Instructor<br>
+        BENOZIR AHAMED HRIDOY<br>
+        University Of Rajshahi<br>
+        B.Sc. in Applied Mathematics</h1>
+    
+    <div class="container">
+        <!-- Start Exam Page -->
+        <div id="startPage">
+            <h1>Class 6 Mathematics Exam</h1>
+            <p style="text-align: center;">Click the button below to start the exam.</p>
+            <button id="startButton" onclick="startExam()">Start Exam</button>
+        </div>
+
+        <!-- Timer -->
+        <div id="timer">Time Left:</div>
+
+        <!-- Exam Page -->
+        <div id="examPage">
+            <h2>Class 6 Mathematics Exam</h2>
+            <h3>Marks: 25</h3>
+            <h6 text="center">Each Question Number 3</h6>
+            <form id="examForm">
+                <!-- Example Questions -->
+    
+  <div class="question">
+    <strong>1. Simplify:</strong>
+    <p>(a) a^3 \times a^5</p>
+    <p>(b) What is the base in x^m?</p>
+</div>
+
+<div class="question">
+    <strong>2. If a = 2, b = 3, c = 1, find the value of:</strong>
+    <p>a^2 - 2ac + c^2</p>
+</div>
+
+<div class="question">
+    <strong>3. Which one is the value of a^7 \times a^8?</strong>
+    <p>
+        (a) a^{56} &nbsp; (b) a^{15} &nbsp; (c) 15 &nbsp; (d) 56
+    </p>
+</div>
+
+<div class="question">
+    <strong>4. What is the index of x in x^5 \times x^4?</strong>
+    <p>
+        (a) 9 &nbsp; (b) x^9 &nbsp; (c) 20 &nbsp; (d) x^{20}
+    </p>
+</div>
+
+<div class="question">
+    <strong>5. Find the difference:</strong>
+    <p>(-20) - (-13)</p>
+</div>
+
+<div class="question">
+    <strong>6. What type of number represents the ground floor in the given diagram?</strong>
+    <p>
+        (a) Negative &nbsp; (b) Non-negative &nbsp; (c) Odd &nbsp; (d) Prime
+    </p>
+</div>
+
+<div class="question">
+    <strong>7. Find the value:</strong>
+    <p>(-7) - 8 - (-25)</p>
+</div>
+
+<div class="question">
+    <strong>8. Determine whether the statement is true or false:</strong>
+    <p>-3 < 6</p>
+</div>
+
+<div class="question">
+    <strong>9. If x = 3, y = 5, z = 2, verify the equation:</strong>
+    <p>(x+y)^2 = (x-y)^2 + 4xy</p>
+</div>
+
+<div class="question">
+    <strong>10. Show that:</strong>
+    <p>y^2 - x^2 = (x+y)(y-x) for x = 3, y = 5.</p>
+</div>
+
+<div class="question">
+    <strong>11. Find the value:</strong>
+    <p>(-13) + 32 - 8 -1</p>
+</div>
+
+<div class="question">
+    <strong>12. Fill in the blanks:</strong>
+    <p>(a) (-3) + (-6) ____ (-3) - (-6)</p>
+    <p>(b) (-21) - (-10) ____ (-31) + (-11)</p>
+</div>
+
+<div class="question">
+    <strong>13. Using the number line, determine:</strong>
+    <p>(a) The sum of -3 and 6.</p>
+    <p>(b) The difference of 9 and 6.</p>
+</div>
+
+<div class="question">
+    <strong>14. Identify whether 7a²bx and 8a²bx are similar or dissimilar terms. Explain.</strong>
+</div>
+
+<div class="question">
+    <strong>15. Solve:</strong>
+    <p>2x^2 \times y^2 \times 2z^2 \times 3y^2 \times 4x^2</p>
+</div>
+
+<div class="question">
+    <strong>16. Prove that:</strong>
+    <p>(x+z)^2 = x^2 + 2xz + z^2 for x = 3, z = 2.</p>
+</div>
+
+<div class="question">
+    <strong>17. Find the value:</strong>
+    <p>50 - (-40) - (-2)</p>
+</div>
+
+<div class="question">
+    <strong>18. Simplify:</strong>
+    <p>5a \times 4b \times 2a \times 5c \times 3b</p>
+                                                               </div>
+                                                                                                                    </div>
+                <button type="button" onclick="submitExam()">Submit Exam</button>
+            </form>
+        </div>
+
+        <!-- Time's Up Message -->
+        <div id="timeUpMessage">
+            <h2>Time's Up!</h2>
+            <p>The exam has ended. You can no longer submit your answers.</p>
+        </div>
+
+        <!-- Restart Exam -->
+        <button id="restartButton" onclick="restartExam()">Restart Exam</button>
+    </div><br>
+    <br>
+    <div>
+     <button type="button" onclick="Home()"><a href="index.html">Home</a></button> 
+    </div>
+
+    <script>
+        const totalTime = 30*60; // 10 minutes in seconds
+        const timerDiv = document.getElementById("timer");
+        const startPage = document.getElementById("startPage");
+        const examPage = document.getElementById("examPage");
+        const timeUpMessage = document.getElementById("timeUpMessage");
+        const restartButton = document.getElementById("restartButton");
+
+        function startExam() {
+            const startTime = Date.now();
+            const endTime = startTime + totalTime * 1000;
+
+            localStorage.setItem("examEndTime", endTime);
+
+            startPage.style.display = "none";
+            examPage.style.display = "block";
+
+            startTimer();
+        }
+
+        function startTimer() {
+            const endTime = parseInt(localStorage.getItem("examEndTime"), 10);
+            if (!endTime) return;
+
+            const timerInterval = setInterval(() => {
+                const currentTime = Date.now();
+                const timeLeft = Math.max(0, Math.floor((endTime - currentTime) / 1000));
+
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+
+                timerDiv.textContent = `Time Left: ${minutes}m ${seconds}s`;
+
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timerDiv.textContent = "Time's up!";
+                    examPage.style.display = "none";
+                    timeUpMessage.style.display = "block";
+                    restartButton.style.display = "block";
+                }
+            }, 1000);
+        }
+
+        function submitExam() {
+            examPage.style.display = "none";
+            timeUpMessage.style.display = "block";
+            localStorage.removeItem("examEndTime");
+        }
+
+        function restartExam() {
+            localStorage.removeItem("examEndTime");
+            timeUpMessage.style.display = "none";
+            restartButton.style.display = "none";
+            startPage.style.display = "block";
+        }
+
+        window.onload = () => {
+            const endTime = parseInt(localStorage.getItem("examEndTime"), 10);
+            if (endTime && Date.now() < endTime) {
+                startPage.style.display = "none";
+                examPage.style.display = "block";
+                startTimer();
+            } else if (endTime && Date.now() >= endTime) {
+                startPage.style.display = "none";
+                timeUpMessage.style.display = "block";
+                restartButton.style.display = "block";
+            }
+        };
+    </script>
+</body>
+  </html>
